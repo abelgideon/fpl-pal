@@ -1,7 +1,6 @@
 import { buttonVariants } from "@/components/ui/button";
 import ModeToggle from "@/components/mode-toggle";
 import Link from "next/link";
-import Image from "next/image";
 import { Logo } from "@/app/_components/logo";
 
 const navLinks = [
