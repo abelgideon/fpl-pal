@@ -10,7 +10,7 @@
   --card-foreground: oklch(0.2101 0.0318 264.6645);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.2101 0.0318 264.6645);
-  --primary: oklch(0.7505 0.2472 141.0641);
+  --primary: oklch(0.5837 0.2635 297.5562);
   --primary-foreground: oklch(1 0 0);
   --secondary: oklch(0.536 0.0398 196.028);
   --secondary-foreground: oklch(1 0 0);
@@ -22,20 +22,20 @@
   --destructive-foreground: oklch(0.9851 0 0);
   --border: oklch(0.9276 0.0058 264.5313);
   --input: oklch(0.9276 0.0058 264.5313);
-  --ring: oklch(0.7505 0.2472 141.0641);
+  --ring: oklch(0.5837 0.2635 297.5562);
   --chart-1: oklch(0.594 0.0443 196.0233);
-  --chart-2: oklch(0.7505 0.2472 141.0641);
-  --chart-3: oklch(0.7505 0.2472 141.0641);
+  --chart-2: oklch(0.5837 0.2635 297.5562);
+  --chart-3: oklch(0.5837 0.2635 297.5562);
   --chart-4: oklch(0.6268 0 0);
   --chart-5: oklch(0.683 0 0);
   --sidebar: oklch(0.967 0.0029 264.5419);
   --sidebar-foreground: oklch(0.2101 0.0318 264.6645);
-  --sidebar-primary: oklch(0.7684 0.2162 146.2685);
+  --sidebar-primary: oklch(0.5837 0.2635 297.5562);
   --sidebar-primary-foreground: oklch(1 0 0);
   --sidebar-accent: oklch(1 0 0);
   --sidebar-accent-foreground: oklch(0.2101 0.0318 264.6645);
   --sidebar-border: oklch(0.9276 0.0058 264.5313);
-  --sidebar-ring: oklch(0.7505 0.2472 141.0641);
+  --sidebar-ring: oklch(0.5837 0.2635 297.5562);
   --font-sans: Geist Mono, ui-monospace, monospace;
   --font-serif: serif;
   --font-mono: JetBrains Mono, monospace;
@@ -179,6 +179,10 @@
   --tracking-wide: calc(var(--tracking-normal) + 0.025em);
   --tracking-wider: calc(var(--tracking-normal) + 0.05em);
   --tracking-widest: calc(var(--tracking-normal) + 0.1em);
+}
+
+body {
+  letter-spacing: var(--tracking-normal);
 }
 
 body {
