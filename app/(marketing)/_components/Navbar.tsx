@@ -2,6 +2,8 @@ import { buttonVariants } from "@/components/ui/button";
 import ModeToggle from "@/components/mode-toggle";
 import Link from "next/link";
 import { Logo } from "@/app/_components/logo";
+import { cn } from "@/lib/utils";
+import { ArrowRight } from "lucide-react";
 
 const navLinks = [
   { id: 1, name: "Home", href: "/" },
@@ -28,10 +30,16 @@ export async function Navbar() {
             href="/signin"
             className={buttonVariants({ variant: "outline" })}
           >
-            Sign in
+            Log in
           </Link>
-          <Link href="/signin" className={buttonVariants()}>
-            Sign up
+          <Link
+            href="/signin"
+            className={cn(
+              buttonVariants(),
+              "bg-linear-to-r from-[#933dff] to-[#31d684] hover:shadow-lg hover:shadow-[#933dff]/30 text-white border-0"
+            )}
+          >
+            Get Started Free
           </Link>
         </>
       </div>
