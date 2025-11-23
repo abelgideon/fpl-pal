@@ -13,16 +13,8 @@ const navLinks = [
 
 export async function Navbar() {
   return (
-    <nav className="flex justify-between p-4">
-      <div className="flex gap-10 justify-center items-center">
-        <Logo />
-        {navLinks.map((link) => (
-          <Link className="hover:text-primary" key={link.id} href={link.href}>
-            {link.name}
-          </Link>
-        ))}
-      </div>
-
+    <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+      <Logo />
       <div className="md:flex md:gap-4 hidden">
         <ModeToggle />
         <>
