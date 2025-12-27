@@ -13,7 +13,7 @@ export function TeamIdForm() {
     return (
         <div className="flex flex-col items-center justify-center h-screen gap-7">
             <Logo />
-            <Card className="min-w-xl">
+            <Card className="md:min-w-xl">
                 <CardHeader className="text-center">
                     <CardTitle className="text-xl">Enter your Team ID</CardTitle>
                     <CardDescription>Enter your Team ID to get started</CardDescription>
