@@ -3,21 +3,20 @@ import ModeToggle from "@/components/mode-toggle";
 import Link from "next/link";
 import { Logo } from "@/app/_components/logo";
 import { cn } from "@/lib/utils";
-import { ArrowRight } from "lucide-react";
-
-const navLinks = [
-  { id: 1, name: "Home", href: "/" },
-  { id: 2, name: "Features", href: "/features" },
-  { id: 3, name: "Faq", href: "/faq" },
-];
+import { auth } from "@/lib/auth";
+import { headers } from "next/headers";
 
 export async function Navbar() {
+  const session = await auth.api.getSession({
+    headers: await headers()
+
+  });
   return (
     <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
       <Logo />
       <div className="md:flex md:gap-4 hidden">
         <ModeToggle />
-        <>
+        {!session && (<>
           <Link
             href="/signin"
             className={buttonVariants({ variant: "outline" })}
@@ -33,7 +32,7 @@ export async function Navbar() {
           >
             Get Started Free
           </Link>
-        </>
+        </>)}
       </div>
     </nav>
   );

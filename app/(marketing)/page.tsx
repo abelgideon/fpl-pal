@@ -3,8 +3,14 @@ import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Features from "./_components/features";
+import { auth } from "@/lib/auth";
+import { headers } from "next/headers";
 
 export default async function Home() {
+  const session = await auth.api.getSession({
+    headers: await headers()
+
+  });
   return (
     <div>
       {" "}
@@ -29,15 +35,25 @@ export default async function Home() {
             dominate your mini-league.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
-            <Link
-              href="/signin"
+            {session ? (<Link
+              href="/dashboard"
               className={cn(
                 buttonVariants({ size: "lg" }),
                 "bg-linear-to-r from-[#933dff] to-[#31d684] hover:shadow-lg hover:shadow-[#933dff]/30 text-white border-0"
               )}
             >
-              Start Playing Now <ArrowRight className="size-4" />
-            </Link>
+              Go to Dashboard <ArrowRight className="size-4" />
+            </Link>) : (
+              <Link
+                href="/signin"
+                className={cn(
+                  buttonVariants({ size: "lg" }),
+                  "bg-linear-to-r from-[#933dff] to-[#31d684] hover:shadow-lg hover:shadow-[#933dff]/30 text-white border-0"
+                )}
+              >
+                Start Playing Now <ArrowRight className="size-4" />
+              </Link>
+            )}
             <Link
               className={cn(
                 buttonVariants({ size: "lg", variant: "outline" }),
