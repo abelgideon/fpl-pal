@@ -1,31 +1,28 @@
-"use client";
+import { auth } from "@/lib/auth";
+import { headers } from "next/headers";
+import { TeamIdForm } from "./_components/team-id-form";
+import { SignOutButton } from "./_components/sign-out-button";
+import { redirect } from "next/navigation";
 
-import { Button } from "@/components/ui/button";
-import { authClient } from "@/lib/auth-client";
-import { useRouter } from "next/navigation";
+export default async function DashboardPage() {
+  const session = await auth.api.getSession({
+    headers: await headers()
+  })
 
-export default function DashboardPage() {
-  const router = useRouter();
-  const session = authClient.useSession();
+  if (!session) {
+    return redirect("/")
+  }
 
-  const handleSignOut = async () => {
-    await authClient.signOut({
-      fetchOptions: {
-        onSuccess: () => {
-          router.push("/");
-        },
-      },
-    });
-  };
+  if (!session.user.teamID) {
+    return <TeamIdForm />
+  }
 
   return (
     <div>
       <h1 className="text-5xl mb-5">Welcome to FPLpal</h1>
-      <p>Hello {session.data?.user.name}</p>
-      <p>This is your email: {session.data?.user.email}</p>
-      <Button onClick={handleSignOut} className="mt-5">
-        Logout
-      </Button>
+      <p>Hello {session.user.name}</p>
+      <p>This is your email: {session.user.email}</p>
+      <SignOutButton />
     </div>
   );
 }

@@ -1,0 +1,1 @@
+ALTER TABLE "user" ALTER COLUMN "team_id" SET DATA TYPE integer;
