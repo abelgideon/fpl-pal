@@ -1,7 +1,5 @@
 import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
-
-import { SignOutButton } from "./_components/sign-out-button";
 import { redirect } from "next/navigation";
 
 export default async function DashboardPage() {
@@ -22,7 +20,7 @@ export default async function DashboardPage() {
       <h1 className="text-5xl mb-5">Welcome to FPLpal</h1>
       <p>Hello {session.user.name}</p>
       <p>This is your email: {session.user.email}</p>
-      <SignOutButton />
+      <p>This is your team ID: {session.user.teamID}</p>
     </div>
   );
 }
