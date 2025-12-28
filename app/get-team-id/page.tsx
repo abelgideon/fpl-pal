@@ -6,11 +6,11 @@ import img_3 from "@/public/images/img-3.png";
 export default function GetTeamIDPage() {
   return (
     <div className="max-w-5xl mx-auto p-10">
-      <h1 className="text-6xl font-bold text-center pb-15">
+      <h1 className="text-3xl md:text-6xl font-bold text-center pb-15">
         How to get your Team ID?
       </h1>
       <div className="space-y-7">
-        <p className="text-2xl">
+        <p className="text-xl md:text-2xl">
           1. Go to the offical{" "}
           <a
             href="https://fantasy.premierleague.com/"
@@ -23,13 +23,12 @@ export default function GetTeamIDPage() {
           page.
         </p>
         <Image
-          className="w-full"
           src={img_1}
           alt="FPL site home page"
           width={1000}
           height={1000}
         />
-        <p className="text-2xl">
+        <p className="text-xl md:text-2xl">
           2. Scroll down till you see the Gameweek History button.
         </p>
         <Image
@@ -38,7 +37,7 @@ export default function GetTeamIDPage() {
           width={1000}
           height={1000}
         />
-        <p className="text-2xl">
+        <p className="text-xl md:text-2xl">
           3. Click on the Gameweek History button and you will find your Team ID
           in the URL.
         </p>
