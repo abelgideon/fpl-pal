@@ -1,20 +1,20 @@
 import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
-import { TeamIdForm } from "./_components/team-id-form";
+
 import { SignOutButton } from "./_components/sign-out-button";
 import { redirect } from "next/navigation";
 
 export default async function DashboardPage() {
   const session = await auth.api.getSession({
-    headers: await headers()
-  })
+    headers: await headers(),
+  });
 
   if (!session) {
-    return redirect("/")
+    return redirect("/");
   }
 
   if (!session.user.teamID) {
-    return <TeamIdForm />
+    return redirect("/onboarding");
   }
 
   return (
