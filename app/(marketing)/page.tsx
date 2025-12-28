@@ -8,8 +8,7 @@ import { headers } from "next/headers";
 
 export default async function Home() {
   const session = await auth.api.getSession({
-    headers: await headers()
-
+    headers: await headers(),
   });
   return (
     <div>
@@ -35,15 +34,17 @@ export default async function Home() {
             dominate your mini-league.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
-            {session ? (<Link
-              href="/dashboard"
-              className={cn(
-                buttonVariants({ size: "lg" }),
-                "bg-linear-to-r from-[#933dff] to-[#31d684] hover:shadow-lg hover:shadow-[#933dff]/30 text-white border-0"
-              )}
-            >
-              Go to Dashboard <ArrowRight className="size-4" />
-            </Link>) : (
+            {session ? (
+              <Link
+                href="/dashboard"
+                className={cn(
+                  buttonVariants({ size: "lg" }),
+                  "bg-linear-to-r from-[#933dff] to-[#31d684] hover:shadow-lg hover:shadow-[#933dff]/30 text-white border-0"
+                )}
+              >
+                Go to Dashboard <ArrowRight className="size-4" />
+              </Link>
+            ) : (
               <Link
                 href="/signin"
                 className={cn(
@@ -54,16 +55,17 @@ export default async function Home() {
                 Start Playing Now <ArrowRight className="size-4" />
               </Link>
             )}
-            <Link
+            <a
               className={cn(
                 buttonVariants({ size: "lg", variant: "outline" }),
                 "border-2 text-base bg-transparent"
               )}
               href={"https://www.youtube.com"}
               target="_blank"
+              rel="noopener noreferrer"
             >
               Watch Demo
-            </Link>
+            </a>
           </div>
         </div>
       </section>
